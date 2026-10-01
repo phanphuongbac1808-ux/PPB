@@ -1,5 +1,7 @@
 # PPB Studio
 
+**[Mở ứng dụng trực tuyến](https://phanphuongbac1808-ux.github.io/PPB/)** · **[Tải bản v2.0.0](https://github.com/phanphuongbac1808-ux/PPB/releases/tag/v2.0.0)**
+
 ![Quality](https://github.com/phanphuongbac1808-ux/PPB/actions/workflows/quality.yml/badge.svg)
 
 Không gian cá nhân để tổ chức công việc và đo hiệu quả cải tiến. Tiếng Việt, không phụ thuộc thư viện, không cần máy chủ cho dữ liệu.
@@ -53,3 +55,7 @@ Kiểm tra bằng trình duyệt: thêm dữ liệu mẫu (320 phút/tuần), s�
 ## Phát hành
 
 Vào Actions → Publish release → Run workflow, nhập tag chưa tồn tại như `v2.0.0`. Workflow chạy kiểm tra trước khi tạo release và file ZIP. GitHub Pages: Settings → Pages → Deploy from a branch → main → / (root).
+
+## Kết quả xác minh v2.0.0
+
+6 test logic và kiểm tra cú pháp đã chạy thành công tại máy và GitHub Actions. Bản trực tuyến đã thử dữ liệu mẫu, sửa, chuyển trạng thái, tìm kiếm và tải lại để kiểm tra lưu dữ liệu. Tải file sao lưu qua trình duyệt tự động chưa xác minh được; kiểm tra định dạng và khôi phục dữ liệu được bao phủ ở test logic. Chưa kiểm thử trên điện thoại thật.
