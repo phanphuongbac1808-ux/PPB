@@ -1,0 +1,27 @@
+name: Publish release
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Version tag (example v2.0.0)'
+        required: true
+        default: v2.0.0
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run check && npm test
+      - name: Package and release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]] || exit 1
+          zip ppb-studio.zip index.html style.css core.js app.js README.md
+          gh release create "$TAG" ppb-studio.zip --target "$GITHUB_SHA" --title "PPB Studio $TAG" --notes "Bảng công việc, báo cáo hiệu quả, sao lưu JSON và CSV. Tải ZIP, giải nén, mở index.html."

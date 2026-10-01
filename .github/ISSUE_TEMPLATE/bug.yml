@@ -1,0 +1,17 @@
+name: Báo lỗi
+description: Ghi lại lỗi để sửa và kiểm tra
+title: '[Lỗi] '
+body:
+  - type: textarea
+    id: steps
+    attributes:
+      label: Các bước tái hiện
+      description: Bạn làm gì và nhìn thấy gì?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Kết quả mong muốn
+    validations:
+      required: true
