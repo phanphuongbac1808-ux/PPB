@@ -1,5 +1,12 @@
 # PPB Studio
 
+## Phát triển kỹ năng điện tử công nghiệp
+
+**[Mở phòng học và lộ trình 12 tuần](learning/README.md)** · [Đánh giá nền tảng](learning/baseline.md) · [Mẫu nhật ký thực hành](learning/lab-template.md)
+
+Bắt đầu bằng [nhiệm vụ đánh giá đầu vào](https://github.com/phanphuongbac1808-ux/PPB/issues/3), rồi triển khai [trạm giám sát nhiệt độ mini](https://github.com/phanphuongbac1808-ux/PPB/issues/4). Đây là kế hoạch học; chưa có phần cứng hoặc kết quả đo được xác nhận.
+
+
 **[Mở ứng dụng trực tuyến](https://phanphuongbac1808-ux.github.io/PPB/)** · **[Tải bản v2.0.0](https://github.com/phanphuongbac1808-ux/PPB/releases/tag/v2.0.0)**
 
 ![Quality](https://github.com/phanphuongbac1808-ux/PPB/actions/workflows/quality.yml/badge.svg)
