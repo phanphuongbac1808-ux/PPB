@@ -1,37 +1,55 @@
-# PPB — Hiệu quả công việc
+# PPB Studio
 
-Ứng dụng tiếng Việt giúp đo thời gian tiết kiệm khi cải tiến những công việc lặp lại.
+![Quality](https://github.com/phanphuongbac1808-ux/PPB/actions/workflows/quality.yml/badge.svg)
 
-## Mở ứng dụng
+Không gian cá nhân để tổ chức công việc và đo hiệu quả cải tiến. Tiếng Việt, không phụ thuộc thư viện, không cần máy chủ cho dữ liệu.
 
-1. Bấm nút **Code → Download ZIP** trong kho này.
-2. Giải nén thư mục tải về.
-3. Mở **index.html** bằng Chrome hoặc Edge. Không cần cài thư viện.
+## Bắt đầu
 
-## Thử trong một phút
+**Code → Download ZIP**, giải nén và mở `index.html` bằng Chrome hoặc Edge. Giữ `style.css`, `core.js`, `app.js` cạnh file HTML. Bấm **Khám phá dữ liệu mẫu** để xem dashboard có nội dung. Dữ liệu mẫu được ghi rõ là minh họa.
 
-Nhập tên “Gộp báo cáo Excel”, thời gian trước 90 phút, sau 15 phút, số lần mỗi tuần 1. Bấm **Thêm công việc**. Kết quả mong đợi: **75 phút** tiết kiệm mỗi tuần.
+## Những gì bạn có thể làm
 
-Thêm việc thứ hai với trước 10 phút, sau 20 phút và 2 lần/tuần. Tổng sẽ còn **55 phút**. Đây là tình huống kiểm tra để bạn tự thử; chưa được kiểm thử chạy trên trình duyệt.
+- Thêm, sửa, xóa và chuyển trạng thái công việc trên bảng 3 cột.
+- Tìm theo tên/nhóm và lọc ưu tiên.
+- Xem thời gian tiết kiệm, giá trị thời gian, tiến độ và hoàn vốn thời gian.
+- So sánh 5 cơ hội tiết kiệm lớn nhất.
+- Sao lưu/khôi phục JSON, xuất CSV cho Excel và in báo cáo.
+- Dùng giao diện sáng/tối và màn hình điện thoại.
 
-## Tính năng
+## Cách tính
 
-- Thêm và xóa công việc.
-- Tính tổng: (phút trước − phút sau) × số lần mỗi tuần.
-- Lưu dữ liệu trong trình duyệt bằng localStorage nếu trình duyệt cho phép.
-- Xuất JSON để giữ bản sao. Bản đầu chưa có chức năng nhập lại JSON.
-- Giao diện thích ứng điện thoại.
+Tiết kiệm mỗi tuần = (phút trước − phút sau) × lần mỗi tuần.
+Giá trị thời gian = phút tiết kiệm / 60 × giá trị một giờ bạn nhập; đây không phải thu nhập.
+Hoàn vốn thời gian = tổng phút triển khai / tổng phút tiết kiệm mỗi tuần. Không tính khi tiết kiệm <= 0. Dashboard tính tất cả trạng thái để thể hiện tiềm năng; hoàn thành không chứng minh số liệu đã được đo thực tế. Chưa trừ bảo trì.
 
-## Lưu ý
+## Dữ liệu
 
-Dữ liệu công việc không gửi lên GitHub và không đồng bộ giữa máy hoặc trình duyệt. Xóa dữ liệu trình duyệt có thể làm mất danh sách. Số phút tiết kiệm chưa trừ thời gian xây dựng và bảo trì công cụ.
+Lưu bằng localStorage trên trình duyệt hiện tại, không gửi công việc lên GitHub. Không đồng bộ giữa máy. Mở file cục bộ có thể bị trình duyệt hạn chế lưu; nếu gặp thông báo lỗi hãy xuất JSON. Khôi phục thay thế danh sách sau xác nhận; nên sao lưu trước. Bản v2 dùng định dạng riêng, không tự chuyển danh sách từ bản v1. Tối đa 1.000 công việc, bản sao tối đa 2 MB.
 
-## Bài học GitHub
+## GitHub vận hành sản phẩm này thế nào?
 
-**Code** lưu mã nguồn; **Commits** ghi lịch sử; **Issues** ghi yêu cầu cải tiến; **Pull requests** để kiểm tra thay đổi trước khi nhập vào bản chính.
+| Công cụ | Vai trò thực tế |
+|---|---|
+| Branch & Pull request | Xem xét bản nâng cấp trước khi nhập main |
+| Issues | Ghi lỗi với bước tái hiện và kết quả mong muốn |
+| Actions | Kiểm tra cú pháp và logic sau mỗi push/PR |
+| Artifacts | Tải bản ứng dụng từ lần kiểm tra thành công |
+| Releases | Workflow Publish release tạo ZIP và phiên bản vX.Y.Z |
+| Pages | Có thể phục vụ ứng dụng trực tuyến từ main, thư mục gốc |
+| Commits | Giữ lịch sử để so sánh và quay lại phiên bản cũ |
 
-## Ý tưởng tiếp theo
+## Phát triển và kiểm tra
 
-- Nhập lại JSON và sửa công việc.
-- Ghi chi phí triển khai để tính thời gian hoàn vốn.
-- Xuất báo cáo CSV.
+Node.js 22 hoặc mới hơn. Không cần npm install.
+
+```sh
+npm run check
+npm test
+```
+
+Kiểm tra bằng trình duyệt: thêm dữ liệu mẫu (320 phút/tuần), sửa, chuyển trạng thái, tìm/lọc, xuất/nhập JSON và thử trên điện thoại. Test tự động kiểm tra tiết kiệm âm, hoàn vốn, dữ liệu lỗi và xuất CSV an toàn.
+
+## Phát hành
+
+Vào Actions → Publish release → Run workflow, nhập tag chưa tồn tại như `v2.0.0`. Workflow chạy kiểm tra trước khi tạo release và file ZIP. GitHub Pages: Settings → Pages → Deploy from a branch → main → / (root).
